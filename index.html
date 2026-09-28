@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neha S Dalbanjan — AI & Data Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0D1117; --surface:#141B24; --surface2:#1A2330;
+  --text:#E7ECF2; --muted:#8B9AAE; --line:#232E3D;
+  --accent:#5EEAD4; --accent2:#818CF8;
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{
+  --bg:#F7F8FA; --surface:#FFFFFF; --surface2:#F0F2F5;
+  --text:#141A22; --muted:#5B6673; --line:#E1E5EB;
+  --accent:#0E9F8F; --accent2:#4F46E5;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F7F8FA; --surface:#FFFFFF; --surface2:#F0F2F5;
+    --text:#141A22; --muted:#5B6673; --line:#E1E5EB;
+    --accent:#0E9F8F; --accent2:#4F46E5;
+  }
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth; scroll-padding-top: calc(72px + env(safe-area-inset-top,0px));}
+html,body{background:var(--bg);}
+body{
+  color:var(--text); font-family:'Inter',sans-serif; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.mono{font-family:'Space Grotesk',sans-serif;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+::selection{background:var(--accent); color:#0D1117;}
+
+/* NAV */
+header{
+  position:sticky; top:0; z-index:50; top:env(safe-area-inset-top,0px);
+  background:color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+nav{display:flex; align-items:center; justify-content:space-between; padding:18px 24px; max-width:920px; margin:0 auto;}
+.brand{font-weight:600; font-size:1.05rem; letter-spacing:-0.01em;}
+.brand span{color:var(--accent);}
+.navlinks{display:flex; gap:28px;}
+.navlinks a{color:var(--muted); font-size:.92rem; transition:color .2s;}
+.navlinks a:hover{color:var(--text);}
+.navlinks{display:none;}
+@media(min-width:640px){.navlinks{display:flex;}}
+
+/* HERO */
+.hero{padding:88px 0 64px; border-bottom:1px solid var(--line);}
+.eyebrow{color:var(--accent); font-size:.85rem; margin-bottom:18px;}
+.hero h1{font-size:clamp(2.2rem,6vw,3.4rem); line-height:1.1; letter-spacing:-0.02em; max-width:14ch;}
+.hero p.lead{margin-top:20px; color:var(--muted); font-size:1.08rem; max-width:58ch;}
+.hero-links{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;}
+.btn{
+  padding:11px 20px; border-radius:8px; font-size:.92rem; font-weight:500;
+  border:1px solid var(--line); transition:border-color .2s, transform .15s;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn.primary{background:var(--accent); color:#0A1210; border-color:var(--accent); font-weight:600;}
+.btn.primary:hover{border-color:var(--accent);}
+.btn:not(.primary):hover{border-color:var(--accent2);}
+.contactbits{margin-top:28px; display:flex; flex-wrap:wrap; gap:18px; color:var(--muted); font-size:.9rem;}
+
+/* SECTIONS */
+section{padding:64px 0; border-bottom:1px solid var(--line);}
+.tag-eyebrow{color:var(--muted); font-size:.8rem; margin-bottom:10px;}
+h2.sectitle{font-size:1.6rem; letter-spacing:-0.01em; margin-bottom:8px;}
+.secintro{color:var(--muted); max-width:60ch; margin-bottom:36px; font-size:.98rem;}
+
+/* SKILLS */
+.skillgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px;}
+.skillcat h3{font-size:.95rem; margin-bottom:12px; color:var(--accent2);}
+.skillcat .items{display:flex; flex-wrap:wrap; gap:8px;}
+.pill{
+  border:1px solid var(--line); padding:6px 12px; border-radius:100px;
+  font-size:.82rem; color:var(--text); background:var(--surface);
+}
+
+/* PROJECTS */
+.project{
+  display:grid; grid-template-columns:1fr; gap:6px;
+  padding:26px 0; border-top:1px solid var(--line);
+}
+.project:first-child{border-top:none;}
+.project-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+.project-head h3{font-size:1.15rem;}
+.project-link{font-size:.85rem; color:var(--accent); white-space:nowrap; border-bottom:1px solid transparent;}
+.project-link:hover{border-bottom-color:var(--accent);}
+.project p{color:var(--muted); font-size:.95rem; max-width:70ch; margin-top:6px;}
+.stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+.stack span{font-size:.75rem; color:var(--muted); border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+.more-projects{margin-top:30px; font-size:.92rem; color:var(--muted);}
+.more-projects a{color:var(--accent);}
+
+/* EDUCATION */
+.timeline{border-left:2px solid var(--line); padding-left:28px; display:flex; flex-direction:column; gap:32px;}
+.tl-item{position:relative;}
+.tl-item::before{
+  content:''; position:absolute; left:-33px; top:4px; width:10px; height:10px;
+  border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--bg);
+}
+.tl-item .tl-year{color:var(--muted); font-size:.82rem; margin-bottom:4px;}
+.tl-item h3{font-size:1.05rem;}
+.tl-item p{color:var(--muted); font-size:.9rem; margin-top:4px;}
+
+/* CONTACT / FOOTER */
+.contact{text-align:left;}
+.contact h2{font-size:1.9rem; max-width:16ch; margin-bottom:14px;}
+.contact-grid{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px;}
+footer{padding:30px 24px; text-align:center; color:var(--muted); font-size:.82rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">Neha<span>.</span>Dalbanjan</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <div class="eyebrow mono">AI &amp; Data Science · Bengaluru, India</div>
+    <h1>Building practical AI, one working prototype at a time.</h1>
+    <p class="lead">I'm Neha S Dalbanjan, an AI &amp; Data Science undergraduate who likes turning machine learning, NLP and computer vision ideas into applications people can actually use — from travel planners to traffic counters.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="https://github.com/NehaDalbanjan" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/neha-s-dalbanjan-3a37b2374" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="contactbits">
+      <span>nehadalbanjan557@gmail.com</span>
+      <span>+91 78926 85289</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="tag-eyebrow">About</div>
+    <h2 class="sectitle">Currently studying, always building</h2>
+    <p class="secintro" style="margin-bottom:0;">I'm in my 7th semester of a B.E. in Artificial Intelligence and Data Science at East Point College of Engineering and Technology (VTU), with a CGPA of 8.50. I work mainly in Python — across machine learning, computer vision and NLP — and build the interfaces for my projects with FastAPI, Streamlit and Flask. I'm looking for an internship where I can keep applying AI to real problems.</p>
+  </section>
+
+  <section id="experience">
+    <div class="tag-eyebrow">Experience</div>
+    <h2 class="sectitle">AI Internship — Innovation Hacks</h2>
+    <p class="secintro">A one-month AI internship where I worked on applied AI projects, building the foundation for the RAG, LLM and agent-based work in my project list below.</p>
+    <div class="timeline" style="margin-top:8px;">
+      <div class="tl-item">
+        <div class="tl-year">Aug 11, 2026 – Sep 11, 2026</div>
+        <h3>AI Intern, Innovation Hacks</h3>
+        <p>Completed a structured AI internship covering practical machine learning, NLP and generative AI development. Intern ID: IH-AI-2026-0151. Certified by Karthickkumar S, Founder &amp; CEO, Innovation Hacks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="tag-eyebrow">Skills</div>
+    <h2 class="sectitle">What I work with</h2>
+    <div class="skillgrid">
+      <div class="skillcat">
+        <h3>AI &amp; NLP</h3>
+        <div class="items">
+          <span class="pill">LangChain</span><span class="pill">RAG</span>
+          <span class="pill">Prompt Engineering</span><span class="pill">Text Classification</span>
+        </div>
+      </div>
+      <div class="skillcat">
+        <h3>Machine Learning</h3>
+        <div class="items">
+          <span class="pill">Scikit-learn</span><span class="pill">Model Training</span>
+          <span class="pill">Model Evaluation</span>
+        </div>
+      </div>
+      <div class="skillcat">
+        <h3>Computer Vision</h3>
+        <div class="items">
+          <span class="pill">OpenCV</span><span class="pill">YOLO</span>
+        </div>
+      </div>
+      <div class="skillcat">
+        <h3>Backend &amp; Frontend</h3>
+        <div class="items">
+          <span class="pill">FastAPI</span><span class="pill">REST APIs</span>
+          <span class="pill">Streamlit</span><span class="pill">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skillcat">
+        <h3>Libraries &amp; Tools</h3>
+        <div class="items">
+          <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Joblib</span>
+          <span class="pill">Git &amp; GitHub</span><span class="pill">Jupyter</span>
+        </div>
+      </div>
+      <div class="skillcat">
+        <h3>Core Concepts</h3>
+        <div class="items">
+          <span class="pill">Python</span><span class="pill">Data Structures &amp; Algorithms</span>
+          <span class="pill">Problem Solving</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="tag-eyebrow">Projects</div>
+    <h2 class="sectitle">Selected work</h2>
+    <p class="secintro">Nine projects spanning RAG and LLM applications, agentic AI, data pipelines, computer vision and classic ML.</p>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>🩺 MediGuide AI</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/Mediguide_AI" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A full-stack medical assistant that ranks medicines using empirical Bayesian scoring over 212,000+ patient reviews, runs NLP sentiment analysis, and answers medical questions with a RAG pipeline grounded in verified NLM DailyMed/FDA data — with a safety layer to prevent inappropriate prescriptive answers.</p>
+      <div class="stack"><span>RAG</span><span>FAISS</span><span>Sentence Transformers</span><span>Groq LLM</span><span>FastAPI</span><span>React + Vite</span><span>PostgreSQL</span><span>JWT</span><span>Docker</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>🔬 AI Research Automation Agent</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/AI-Research-Automation-Agent" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>An agentic research assistant that automates literature review: given a topic, it plans, retrieves papers from arXiv, Crossref and OpenAlex, verifies and ranks them, analyzes methods and findings, identifies research gaps, and produces a structured report.</p>
+      <div class="stack"><span>FastAPI</span><span>Groq API</span><span>Pydantic</span><span>Streamlit</span><span>Web Search</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>📚 AI Document Assistant</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/AI-Document-Assisstant" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A RAG-based document Q&amp;A system: upload a PDF, and it extracts and chunks the text, embeds it, searches it with FAISS, and answers questions using an LLM — restricted strictly to information found in the document, with source pages shown.</p>
+      <div class="stack"><span>RAG</span><span>FAISS</span><span>Groq LLM</span><span>Streamlit</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>🤖 AI Smart Assistant</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/AI-Smart-Assisstant" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A general-purpose productivity assistant for working with documents and text — summarization, question answering, content generation, document analysis and intelligent suggestions. The foundation project that led into my dedicated Document Assistant/RAG work.</p>
+      <div class="stack"><span>Python</span><span>NLP</span><span>Backend + Frontend</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>🧠 AI Intelligence Pipelines</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/AI-Intelligence-Pipelines" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A production-style data pipeline that collects, normalizes, deduplicates, analyzes, stores and serves AI-related information across domains — research papers, tech news, jobs and AI products — through an async API.</p>
+      <div class="stack"><span>Python 3.13</span><span>FastAPI</span><span>SQLAlchemy AsyncIO</span><span>PostgreSQL</span><span>Alembic</span><span>Groq LLMs</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>✈️ AI Travel Planner</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/AI-Travel-Planner" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A Flask travel planner that takes source, destination, days, budget and traveller details, then predicts expenses with ML, recommends hotels, generates an AI itinerary with Gemini, and exports the whole plan as a downloadable PDF.</p>
+      <div class="stack"><span>Flask</span><span>Gemini API</span><span>Scikit-learn</span><span>Pandas</span><span>ReportLab</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>📄 Resume Analyzer</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/Resume_analyzer" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A classical NLP resume-matching tool: extracts text from a PDF/DOCX resume and a job description, cleans it, vectorizes both with TF-IDF (unigrams + bigrams), and scores their cosine similarity — surfacing important JD keywords missing from the resume.</p>
+      <div class="stack"><span>TF-IDF</span><span>Cosine Similarity</span><span>NLTK</span><span>Streamlit</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>📨 Spam SMS Classifier</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/spam-sms-classifier" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>An SMS spam classifier with a full ML pipeline: TF-IDF feature extraction (up to 5,000 unigram/bigram features) plus engineered features like character count, URL and number presence, and uppercase ratio — compared across Naive Bayes, Logistic Regression, Linear SVM and Random Forest with 5-fold cross-validation.</p>
+      <div class="stack"><span>Scikit-learn</span><span>TF-IDF</span><span>Model Comparison</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>🚗 Vehicle Count Estimator (YOLO)</h3>
+        <a class="project-link" href="https://github.com/NehaDalbanjan/vehicle-count-estimator-yolo" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <p>A real-time computer vision system that detects, classifies and counts vehicles from CCTV footage using YOLOv8 and OpenCV — now being extended toward ambulance detection for traffic-monitoring use cases.</p>
+      <div class="stack"><span>YOLOv8</span><span>OpenCV</span><span>Python</span></div>
+    </div>
+
+    <p class="more-projects">This covers my main projects — I keep all repositories, including forks and experiments, on <a href="https://github.com/NehaDalbanjan" target="_blank" rel="noopener">my GitHub profile ↗</a>.</p>
+  </section>
+
+  <section id="education">
+    <div class="tag-eyebrow">Education</div>
+    <h2 class="sectitle">Academic background</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2023 — Present</div>
+        <h3>B.E. in Artificial Intelligence and Data Science</h3>
+        <p>East Point College of Engineering and Technology, VTU · Currently in 7th semester · CGPA: 8.50</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021 — 2023</div>
+        <h3>PUC — Government Pre-University College</h3>
+        <p>Percentage: 94.16%</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020 — 2021</div>
+        <h3>SSLC — Shri Sadguru English High School</h3>
+        <p>Percentage: 94.24%</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;">
+    <div class="contact">
+      <div class="tag-eyebrow">Contact</div>
+      <h2>Open to internship opportunities — let's talk.</h2>
+      <p class="secintro" style="margin-bottom:0;">Whether it's an internship, a collaboration, or just a question about one of my projects, I'd love to hear from you.</p>
+      <div class="contact-grid">
+        <a class="btn primary" href="mailto:nehadalbanjan557@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/neha-s-dalbanjan-3a37b2374" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/NehaDalbanjan" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="tel:+917892685289">+91 78926 85289</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Neha S Dalbanjan · Built with curiosity and a lot of Python.</footer>
+
+</body>
+</html>
